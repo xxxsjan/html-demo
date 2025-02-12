@@ -1,4 +1,4 @@
-name: Deploy to Alibaba Cloud Server
+name: push触发服务器部署
 
 on:
   push:
