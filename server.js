@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3100;
+const port = 3200;
 
 // 设置静态文件目录
 app.use(express.static("public"));
