@@ -29,5 +29,5 @@ jobs:
             fi
             cd html-demo
             npm install
-            npm run dev
+            pm2 start npm --name "html-demo" -- run dev
           EOF
