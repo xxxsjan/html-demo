@@ -28,6 +28,10 @@ jobs:
                 git clone https://github.com/xxxsjan/html-demo
             fi
             cd html-demo
+            git pull origin main
+            git checkout main
             npm install
+            pm2 delete html-demo | true
             pm2 start npm --name "html-demo" -- run dev
+            pm2 save
           EOF
