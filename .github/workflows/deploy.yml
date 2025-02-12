@@ -21,6 +21,13 @@ jobs:
       - name: Execute script on server
         run: |
           ssh -o StrictHostKeyChecking=no root@47.121.117.97 << EOF
-            cd /www/wwwroot/home-site
-            ls -l
+            cd /www/wwwroot
+            if [ -d "html-demo" ]; then
+                git pull origin main
+            else
+                git clone https://github.com/xxxsjan/html-demo
+            fi
+            cd html-demo
+            npm install
+            npm run dev
           EOF
