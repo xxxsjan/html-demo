@@ -1,0 +1,26 @@
+name: Deploy to Alibaba Cloud Server
+
+on:
+  push:
+    branches:
+      - main  # 可根据需要修改为其他分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Execute script on server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@47.121.117.97 << EOF
+            cd /www/wwwroot/home-site
+            ls -l
+          EOF
